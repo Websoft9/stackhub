@@ -3,6 +3,8 @@ set timeout 30
 spawn bash /root/install.sh
 expect "now?"
 send "y\r"
+expect "SSL"
+send "n\r
 
 interact
 expect eof
