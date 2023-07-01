@@ -1,4 +1,4 @@
-name: Build and Publish File Package
+name: Build and Publish File Packages
 
 on:
   push:
