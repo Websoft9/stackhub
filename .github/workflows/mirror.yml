@@ -1,35 +1,43 @@
-name: Mirror to Gitee Repo
+name: Build and Publish File Package
 
-# on: [ push, delete, create ]
 on:
   push:
     branches:
       - main
 
 jobs:
-  git-mirror:
+  build-and-publish:
     runs-on: ubuntu-latest
-    steps:
-      - name: Configure Private Key
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-      - name: Push Mirror
-        env:
-          # SOURCE_REPO: 'https://github.com/mgithubTestOrg/giteeMirror.git'
-          SOURCE_REPO: "https://github.com/${{ github.repository }}.git"
-          # DESTINATION_REPO: 'git@gitee.com:mgithubTestOrg/giteeMirror.git'
-          # DESTINATION_REPO: 'git@gitee.com:${{ github.repository }}.git'
-          DESTINATION_REPO: "git@gitee.com:websoft9/${{ github.event.repository.name }}.git"
-          BASE_REPO: "https://github.com/${{ github.repository }}"
-        run: |
-          git clone "$SOURCE_REPO" && cd `basename "$BASE_REPO"`
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "xxx@websoft9.com"
 
-          git remote set-url --push origin "$DESTINATION_REPO"
-          git push origin main --force
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build package
+        run: |
+          # Build your package here
+          # For example, create a tar or zip file
+          tar -czvf test.tar.gz ./tests
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYGITHUB_ADMIN_TOKEN }}
+        with:
+          tag_name: v1.0.0
+          release_name: Release v1.0.0
+          body: |
+            Release v1.0.0
+          draft: false
+          prerelease: false
+
+      - name: Upload Package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build-package.tar.gz
+          asset_name: build-package.tar.gz
+          asset_content_type: application/gzip
