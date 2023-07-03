@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-rq
-apscheduler
-docker
-psutil
-gunicorn
-python-dotenv
