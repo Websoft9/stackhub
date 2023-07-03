@@ -2,12 +2,12 @@
 export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 
 # get applist
-if [ -d StackHub ] ; then
-  echo "StackHub is exists"
+if [ -d stackhub ] ; then
+  echo "stackhub is exists"
 else
-  git clone --depth=1 https://ghproxy.com/https://github.com/Websoft9/StackHub.git
+  git clone --depth=1 https://ghproxy.com/https://github.com/Websoft9/stackhub.git
 fi 
-appnames=$(ls StackHub/apps/roles |grep -v Template |grep -v README.md |grep -v role)
+appnames=$(ls stackhub/apps/roles |grep -v Template |grep -v README.md |grep -v role)
 
 targetlist=""
 
