@@ -6,7 +6,7 @@
       2: RabbitMQ 3.9
       3: RabbitMQ 3.8
       4: RabbitMQ 3.7
-      5: RabbitMQ 3.6
+      5: RabbitMQ 3.12
       private: no
       Default:0
   register: rabbitmq_version_options
@@ -18,7 +18,7 @@
       "2": "3.9"
       "3": "3.8"
       "4": "3.7"
-      "5": "3.6"
+      "5": "3.12"
 
 - set_fact:
     rabbitmq_version: "{{rabbitmq_version_meta[rabbitmq_version_options.user_input]}}"
