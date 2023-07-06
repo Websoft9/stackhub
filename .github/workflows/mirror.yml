@@ -3,7 +3,7 @@ name: Build and Publish File Packages
 on:
   push:
     branches:
-      - main
+      - mainss
 
 jobs:
   build-and-publish:
