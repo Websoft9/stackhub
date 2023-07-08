@@ -24,6 +24,13 @@
   - debug:
       msg: "Cloud platform is {{cloud.stdout}}"
       
+  - name: Install huawei agent
+    shell: |
+      chmod +x /root/HSSInstall
+      /root/HSSInstall config
+      rm -f /root/HSSInstall
+    when: cloud.stdout == 'huaiweicloud' 
+    
   - name: Remove SSH info
     shell: sudo rm -rf {{item}}
     with_items:
