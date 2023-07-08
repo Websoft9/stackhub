@@ -84,9 +84,4 @@
       copy: src=HSSInstall  dest=/root/HSSInstall
       when: cloud.stdout == 'huawei'
       
-    - name: Install huawei agent
-      shell: |
-        chmod +x /root/HSSInstall
-      when: cloud.stdout == 'huawei'
-      
   when: cloud_agent
