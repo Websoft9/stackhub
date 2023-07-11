@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 set timeout 30
-spawn bash /root/install.sh
+spawn bash /root/install.sh ed8484bec
 expect "now?"
 send "y\r"
 expect "SSL"
