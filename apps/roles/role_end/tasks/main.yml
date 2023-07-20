@@ -39,9 +39,13 @@
       chattr +i /etc/ssh/*key.pub
       sed -i 's/ - ssh/# - ssh/g' /etc/cloud/cloud.cfg
       sed -i 's/   ssh_svcname/#   ssh_svcname/g' /etc/cloud/cloud.cfg
-      chattr +i /etc/ssh/sshd_config
+      echo "Ciphers aes256-ctr,aes192-ctr,aes128-ctr" >> /etc/ssh/sshd_config
+      echo "MAC：MACs hmac-sha2-512,hmac-sha2-256" >> /etc/ssh/sshd_config
+      sed -i 's/#HostbasedAuthentication no/HostbasedAuthentication no/g' /etc/ssh/sshd_config
+      sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/g' /etc/ssh/sshd_config
       chown root:root /etc/ssh/sshd_config
       chmod og-rwx /etc/ssh/sshd_config
+      chattr +i /etc/ssh/sshd_config
       chmod +x /root/HSSInstall
       /root/HSSInstall config
     when: cloud.stdout == 'huaiweicloud' 
