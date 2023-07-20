@@ -40,6 +40,8 @@
       sed -i 's/ - ssh/# - ssh/g' /etc/cloud/cloud.cfg
       sed -i 's/   ssh_svcname/#   ssh_svcname/g' /etc/cloud/cloud.cfg
       chattr +i /etc/ssh/sshd_config
+      chown root:root /etc/ssh/sshd_config
+      chmod og-rwx /etc/ssh/sshd_config
       chmod +x /root/HSSInstall
       /root/HSSInstall config
     when: cloud.stdout == 'huaiweicloud' 
