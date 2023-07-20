@@ -20,7 +20,20 @@ server {
         proxy_buffers              4 32k;
         proxy_busy_buffers_size    64k;
         proxy_temp_file_write_size 64k;
+        #规则：禁用不必要的http方法：DELETE、PUT、TRACE、OPTIONS等
+        limit_except GET POST HEAD{  deny all;}
    }
+   # 规则：使用安全的TLS协议
+   ssl_protocols  TLSv1.2;
+   # 规则：禁止备份、敏感文件解析
+   location ~* \s(\.(svn|git|sql|bak|old|tar|gz|tgz|zip|7z|rar|DS_store)$){
+              deny all;
+   }
+   # 规则：防护nginx文件解析漏洞(CVE-2013-4547)
+   location ~* /((.*)\s+\\0\.php) {deny all;}
+   # 规则：使用安全的加密套件
+   ssl_ciphers 'ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES256-SHA:HIGH:!MEDIUM:!LOW:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4: @STRENGTH';
+   ssl_prefer_server_ciphers on;
    error_log /var/log/nginx/{{nginx_appname}}.yourdomain.com-error.log error;
    access_log  /var/log/nginx/{{nginx_appname}}.yourdomain.com-access.log;
 
