@@ -61,6 +61,11 @@
     dest: /etc/nginx/conf.d/default.conf
   when: cloud.stdout != 'huaiweicloud'
 
+- name: Set extra nginx proxy
+  shell: |
+    bash /data/apps/{{appname}}/src/
+  when: nginx_config
+
 - name: create nginx's Directory
   file:
     path: "{{item}}"
