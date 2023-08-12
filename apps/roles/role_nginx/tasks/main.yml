@@ -63,7 +63,7 @@
 
 - name: Set extra nginx proxy
   shell: |
-    bash /data/apps/{{appname}}/src/
+    bash /data/apps/{{appname}}/src/nginx_config.sh
   when: nginx_config
 
 - name: create nginx's Directory
