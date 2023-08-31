@@ -1,7 +1,7 @@
 - pause:
     prompt: |
       Choice MySQL version: 
-      0: MySQL8.0
+      0: MySQL8.1
       1: MySQL5.7
       2: MySQL5.6
       3: MySQL5.5
@@ -11,7 +11,7 @@
 
 - set_fact:
     mysql_version_meta:
-      "0": "8.0"
+      "0": "8.1"
       "1": "5.7"
       "2": "5.6"
       "3": "5.5"
