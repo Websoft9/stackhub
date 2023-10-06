@@ -6,7 +6,7 @@ common_install_python_modules: False
 common_install_components: True
 common_set_rclocal: False
 
-common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracleLinux", "Debian", "RedHat"]
+common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracleLinux", "Debian", "RedHat", "Fedora"]
 
 # Useful tools, list var type, e.g: 
 # common_install_tools:
