@@ -2,7 +2,7 @@
     prompt: |
       Choice Neo4j version: 
       0: Neo4j latest
-      1: Neo4j 4.4
+      1: Neo4j 5.12
       2: Neo4j 4.3
       3: Neo4j 4.2
       4: Neo4j 5.7
@@ -16,7 +16,7 @@
 - set_fact:
     neo4j_version_meta:
       "0": "latest"
-      "1": "4.4"
+      "1": "5.12"
       "2": "4.3"
       "3": "4.2"
       "4": "5.7"
