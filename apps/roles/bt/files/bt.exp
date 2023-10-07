@@ -3,6 +3,5 @@ set timeout -1
 spawn bash /root/install.sh ed8484bec
 expect "Do you want to install Bt-Panel to the /www directory now?(y/n):"
 send "y\r"
-
-interact
+after 600000
 expect eof
