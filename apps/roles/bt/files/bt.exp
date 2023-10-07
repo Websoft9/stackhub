@@ -1,5 +1,5 @@
 #!/usr/bin/expect -f
-set timeout 900
+set timeout 60
 spawn bash /root/install.sh ed8484bec
 expect "now?"
 send "y\r"
