@@ -18,7 +18,6 @@
 - name: install libgd-dev for ubuntu
   apt:
     name: libgd-dev
-    state: latest
   when: ansible_os_family == "Debian"
 
 ##------ download script start ------ ###
