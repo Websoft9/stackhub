@@ -15,6 +15,12 @@
     state: latest
   when: ansible_os_family == "Debian"
 
+- name: install libgd-dev for ubuntu
+  apt:
+    name: libgd-dev
+    state: latest
+  when: ansible_os_family == "Debian"
+
 ##------ download script start ------ ###
 - name: download Chinese install.sh for {{ansible_os_family}}
   get_url:
