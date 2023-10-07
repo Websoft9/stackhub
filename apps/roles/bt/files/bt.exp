@@ -4,4 +4,6 @@ spawn bash /root/install.sh ed8484bec
 expect "Do you want to install Bt-Panel to the /www directory now?(y/n):"
 send "y\r"
 after 600000
+
+interact
 expect eof
