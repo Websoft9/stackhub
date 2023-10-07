@@ -47,3 +47,4 @@ common_packages_debian:
   - mlocate
   - chrony
   - pwgen
+  - libgd-dev
