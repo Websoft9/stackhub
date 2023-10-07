@@ -1,8 +1,7 @@
 #!/usr/bin/expect -f
 set timeout -1
 spawn bash /root/install.sh ed8484bec
-expect "now?"
+expect "Do you want to install Bt-Panel to the /www directory now?(y/n):"
 send "y\r"
-expect "SSL ? "
-send "n\r"
+after 1000
 expect eof
