@@ -50,7 +50,7 @@
 # this step may get error most of times
 - name: install bt, waiting for 5-10 mins
   #shell: expect /root/bt.exp
-  shell: sleep 600
+  shell: sleep 300
   ignore_errors: yes
   
 - name: change username & password
