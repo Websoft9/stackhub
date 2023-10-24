@@ -13,6 +13,7 @@
         bash githubclone.sh websoft9 library
         cp -r  library  "{{installpath}}"
         cp -r  "{{installpath}}/library/apps/{{app}}"  "{{installpath}}"
+        chmod +x -R "{{installpath}}"
         sed -i "s/appname.example.com:$APP_HTTP_PORT/appname.example.com/g" {{installpath}}/{{app}}/.env
       async: 1800
 
