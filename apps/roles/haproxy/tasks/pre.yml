@@ -7,7 +7,7 @@
       3: Haproxy2.3
       4: Haproxy2.2
       5: Haproxy2.0
-      6: Haproxy2.7
+      6: Haproxy2.9
       7: Haproxy2.8
       private: no
       Default:0
@@ -21,7 +21,7 @@
       "3": "2.3"
       "4": "2.2"
       "5": "2.0"
-      "6": "2.7"
+      "6": "2.9"
       "7": "2.8"
 
 - set_fact:
