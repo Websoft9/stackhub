@@ -46,7 +46,7 @@
   - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}},there is [releaseserver] in the linux repo,so download from websoft9 self repo 
     shell: |
       amazon-linux-extras install epel -y
-      wget -O /etc/yum.repos.d/CentOS7-Base.repo https://raw.githubusercontent.com/websoft9/role_common/master/files/CentOS7-Base.repo
+      wget -O /etc/yum.repos.d/CentOS7-Base.repo https://raw.githubusercontent.com/stackhub/role_common/master/files/CentOS7-Base.repo
 
   - name: delete amazon repo priority
     lineinfile:
