@@ -5,7 +5,7 @@ export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 if [ -d stackhub ] ; then
   echo "stackhub is exists"
 else
-  git clone --depth=1 https://ghproxy.com/https://github.com/Websoft9/stackhub.git
+  git clone --depth=1 https://github.com/Websoft9/stackhub.git
 fi 
 appnames=$(ls stackhub/apps/roles |grep -v Template |grep -v README.md |grep -v role)
 
