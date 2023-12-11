@@ -12,7 +12,7 @@
       8: PostgreSQL 9.4
       9: PostgreSQL 9.3
       10: PostgreSQL 9.2
-      11: PostgreSQL 9.1
+      11: PostgreSQL 16
       private: no
       Default:0
   register: postgresql_version_options
@@ -30,7 +30,7 @@
       "8": "9.4"
       "9": "9.3"
       "10": "9.2"  
-      "11": "9.1"
+      "11": "16"
 
 - set_fact:
     postgresql_version: "{{postgresql_version_meta[postgresql_version_options.user_input]}}"
