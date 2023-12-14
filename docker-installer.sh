@@ -249,7 +249,7 @@ installation(){
     sudo echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" |tee -a /credentials/password.txt
 
 # Modify public network IP
-  public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh 2>/dev/null |bash` 
+  public_ip=`wget -O - https://websoft9.github.io/websoft9/scripts/get_ip.sh 2>/dev/null |bash` 
   case $repo_name in
     "erpnext")
       sudo sed -i "s/APP_SITE_NAME.*/APP_SITE_NAME=$public_ip/g" $install_dir/.env
