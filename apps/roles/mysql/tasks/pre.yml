@@ -3,7 +3,7 @@
       Choice MySQL version: 
       0: MySQL8.2
       1: MySQL8.1
-      2: MySQL5.7
+      2: MySQL8.0
       3: MySQL5.6
       4: MySQL5.5
       private: no
@@ -14,7 +14,7 @@
     mysql_version_meta:
       "0": "8.2"
       "1": "8.1"
-      "2": "5.7"
+      "2": "8.0"
       "3": "5.6"
       "4": "5.5"
       
