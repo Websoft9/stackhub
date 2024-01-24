@@ -28,9 +28,6 @@
     failed_when: False
     register: common_install_result
     loop: "{{ common_packages_debian }}"
-
-  - debug: 
-      msg: "{{ common_install_result | json_query('results[*].results[*]') }}"
       
   - block:
     - name: Install extra Software
@@ -44,8 +41,6 @@
       register: extra_install_result
       loop: "{{ common_packages_debian_extra }}"
 
-    - debug: 
-        msg: "{{ extra_install_result | json_query('results[*].results[*]') }}"
     when: common_packages_debian_extra is defined and common_packages_debian_extra is not none and common_packages_debian_extra != ""
       
   when: common_install_components
