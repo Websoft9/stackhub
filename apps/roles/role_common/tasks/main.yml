@@ -6,7 +6,7 @@
   fail: msg="OS not supported,exit!"
   when: ansible_distribution not in common_os_support
   
-- include: "{{ansible_os_family}}.yml"
+- include_tasks: "{{ansible_os_family}}.yml"
   
 - name: Updatedb for mlocate
   shell: updatedb

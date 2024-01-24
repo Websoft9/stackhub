@@ -1,5 +1,5 @@
 - name: Install this role on {{ansible_os_family}}
-  include: "{{ansible_os_family}}.yml"
+  include_tasks: "{{ansible_os_family}}.yml"
 
 # display os version and image name
 - name: Display os version

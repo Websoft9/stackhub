@@ -65,7 +65,7 @@
   when: ansible_os_family == "Debian"
 
 - name: Install VNC
-  include: vnc.yml
+  include_tasks: vnc.yml
 
 - block:
   - name: Check RedHat Mate Desktop Version
