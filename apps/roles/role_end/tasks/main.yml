@@ -24,11 +24,11 @@
   - debug:
       msg: "Cloud platform is {{cloud.stdout}}"
       
-  - name: Init for azure
-    shell: |
-      cloud-init clean
-      waagent -deprovision+user --force
-    when: cloud.stdout == 'azure'
+  # - name: Init for azure
+  #   shell: |
+  #     cloud-init clean
+  #     waagent -deprovision+user --force
+  #   when: cloud.stdout == 'azure'
     
   - name: Remove SSH info
     shell: sudo rm -rf {{item}}
