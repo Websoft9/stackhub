@@ -23,12 +23,6 @@
     
   - debug:
       msg: "Cloud platform is {{cloud.stdout}}"
-      
-  # - name: Init for azure
-  #   shell: |
-  #     cloud-init clean
-  #     waagent -deprovision+user --force
-  #   when: cloud.stdout == 'azure'
     
   - name: Remove SSH info
     shell: sudo rm -rf {{item}}
@@ -52,8 +46,14 @@
       chattr +i /etc/ssh/sshd_config
       chmod +x /root/HSSInstall
       /root/HSSInstall config
-    when: cloud.stdout == 'huaiweicloud' 
+    when: cloud.stdout == 'huaiweicloud'
 
+  - name: Init for azure
+    shell: |
+      cloud-init clean
+      waagent -deprovision+user --force
+    when: cloud.stdout == 'azure'
+  
   when: init == '1' or init == 1
 
 # when ansible running as local, reboot can't use
