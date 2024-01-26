@@ -48,10 +48,10 @@
       /root/HSSInstall config
     when: cloud.stdout == 'huaiweicloud'
 
-  - name: Init for azure
-    shell: |
-      cloud-init clean
-      waagent -deprovision+user --force
+  # - name: Init for azure
+  #   shell: |
+  #     cloud-init clean
+  #     waagent -deprovision+user --force
     when: cloud.stdout == 'azure'
   
   when: init == '1' or init == 1
