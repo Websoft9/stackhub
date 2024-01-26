@@ -52,7 +52,7 @@
   #   shell: |
   #     cloud-init clean
   #     waagent -deprovision+user --force
-    when: cloud.stdout == 'azure'
+  #  when: cloud.stdout == 'azure'
   
   when: init == '1' or init == 1
 
