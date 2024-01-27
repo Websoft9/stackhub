@@ -12,7 +12,7 @@
     
 - name: Install Desktop and VNC
   include_tasks: desktop.yml
-  when: os_desktop is defined and os_desktop is not none and os_desktop !="" and (os_image =="" or os_image is undefined)
+  when: os_desktop is defined and os_desktop is not none and os_desktop !="" 
 
 - name: Make a private image with some cloud platform
   include_tasks: image.yml
