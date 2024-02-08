@@ -135,7 +135,7 @@ curl_metadata()
         fi
         
         meta_json=$(cat /tmp/hostguard_meta_data.json)
-        availability_zone_secure=$(expr "$meta_json" : '.*"availability_zone":\s*"\([^"]*\)".*') 
+        availability_zone_secure=$(expr "$meta_json" : '.*"region_id":\s*"\([^"]*\)".*') 
         availability_zone_secure=$(echo $availability_zone_secure|sed "s/^[ \"]*//g")
         availability_zone_secure=$(echo $availability_zone_secure|sed "s/[ \"]*$//g")
         export availability_zone_secure=$availability_zone_secure
@@ -511,12 +511,17 @@ config()
     chmod +x /etc/init.d/HSSInstall
     
     if [ -x /sbin/chkconfig ]; then
-        chkconfig --add HSSInstall > /dev/null 2>&1
+	echo "1"
+	chkconfig --add HSSInstall > /dev/null 2>&1
     elif [ -x /usr/sbin/update-rc.d ]; then
-        update-rc.d HSSInstall defaults > /dev/null 2>&1
+        echo "2"
+	update-rc.d HSSInstall defaults > /dev/null 2>&1
+
     elif [ -x /bin/systemctl ]; then
+	echo "3"
         systemctl enable HSSInstall > /dev/null 2>&1
     elif [ -x /sbin/rc-update ]; then
+	echo "4"
         rc-update add HSSInstall boot default sysinit > /dev/null 2>&1
     else
         echo -e "\033[31m Config failed. \033[0m"
@@ -531,12 +536,16 @@ config()
     fi
     
     if [ -x /sbin/chkconfig ]; then
+	echo "2-1"
         chkconfig --list|grep HSSInstall > /dev/null 2>&1
     elif [ -x /usr/sbin/sysv-rc-conf ]; then
+	echo "2-2"
         sysv-rc-conf --list|grep HSSInstall  > /dev/null 2>&1
     elif [ -x /bin/systemctl ]; then
+	echo "2-3"
         systemctl -al|grep HSSInstall > /dev/null 2>&1
     elif [ -x /sbin/rc-update ]; then
+	echo "2-4"
         rc-update show|grep HSSInstall > /dev/null 2>&1
     fi
     
@@ -545,7 +554,7 @@ config()
         rm -f /etc/init.d/HSSInstall > /dev/null 2>&1
         exit 1
     fi
-    
+    echo "3-1"
     echo -e "\033[32m Config OK. \033[0m"
     exit 0
 #    rm -rf "$0" > /dev/null 2>&1
