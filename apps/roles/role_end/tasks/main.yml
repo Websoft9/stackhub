@@ -35,6 +35,8 @@
     shell: |
       chmod 400 /etc/ssh/*key
       chmod 400 /etc/ssh/*key.pub
+      chown root:root /etc/ssh/*key
+      chown root:root /etc/ssh/*key.pub
       chattr +i /etc/ssh/*key
       chattr +i /etc/ssh/*key.pub
       echo "Ciphers aes256-ctr,aes192-ctr,aes128-ctr" >> /etc/ssh/sshd_config
