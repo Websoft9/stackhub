@@ -20,3 +20,4 @@
 
 - name: Check chrony status
   shell: systemctl restart chronyd
+  ignore_errors: true
