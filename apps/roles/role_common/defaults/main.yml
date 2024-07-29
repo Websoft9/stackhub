@@ -13,8 +13,8 @@ common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracleLinux", "Debian", "RedH
 #   - docker
 #   - cockpit
 
-common_install_tools:
-  - docker
+common_install_tools: []
+#  - docker
 
 # when init=1, need upgrade system
 common_system_upgrade: True
