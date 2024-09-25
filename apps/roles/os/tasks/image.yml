@@ -57,5 +57,6 @@
   shell: |
     systemctl stop firewalld
     systemctl disable firewalld
+  failed_when: false
     
 - include_tasks: "migration/{{os_cloudplatform}}.yml"
