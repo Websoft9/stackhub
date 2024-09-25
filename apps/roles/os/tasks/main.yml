@@ -8,7 +8,7 @@
   shell: |
     systemctl stop firewalld
     systemctl disable firewalld
-  ignore_errors: true
+  failed_when: false
     
 - name: Install Desktop and VNC
   include_tasks: desktop.yml
