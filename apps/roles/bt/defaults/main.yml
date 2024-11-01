@@ -6,8 +6,8 @@ bt_filelist: ["password.exp", "username.exp", "port.exp"]
 
 bt_download_url:
   RedHat:
-    zh: https://download.bt.cn/install/install_6.0.sh
-    en: http://www.aapanel.com/script/install_6.0_en.sh 
+    zh: https://download.bt.cn/install/install_lts.sh
+    en: https://www.aapanel.com/script/install_7.0_en.sh  
   Debian:
-    zh: https://download.bt.cn/install/install-ubuntu_6.0.sh
-    en: http://www.aapanel.com/script/install_6.0_en.sh
+    zh: https://download.bt.cn/install/install_lts.sh
+    en: https://www.aapanel.com/script/install_7.0_en.sh
