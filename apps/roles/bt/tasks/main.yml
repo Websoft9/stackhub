@@ -26,10 +26,7 @@
   when: bt_language == 'zh'
 
 - name: download English install.sh for {{ansible_os_family}}
-  get_url:
-    url: "{{bt_download_url[ansible_os_family].en}}"
-    dest: /root/install.sh
-    mode: '0644'
+  copy: src=install_en.sh  dest=/root/install.sh  mode=0644
   when: bt_language == 'en'
 
 ##------ download script end ------ ###
